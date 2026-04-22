@@ -7,17 +7,19 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "deploy": "npx nuxi generate && gh-pages -d .output/public"
   },
   "dependencies": {
+    "@quasar/extras": "^1.16.11",
     "nuxt": "^4.4.2",
     "nuxt-quasar-ui": "^3.0.1",
     "quasar": "^2.16.0",
-    "@quasar/extras": "^1.16.11",
     "vue": "^3.5.3",
     "vue-router": "^4.4.0"
   },
   "devDependencies": {
-    "@types/node": "^22.0.0"
+    "@types/node": "^22.0.0",
+    "gh-pages": "^6.3.0"
   }
 }
