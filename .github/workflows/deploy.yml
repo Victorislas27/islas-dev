@@ -9,22 +9,25 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    env:
+      # Esto elimina el aviso y fuerza el uso de Node 24 en las acciones
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4 # Esta versión es compatible, el warning se va con la env variable
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22' # Usando la versión de tus otros proyectos
+          node-version: '22' # Mantenemos tu versión de desarrollo
 
       - name: Setup pnpm
-        uses: pnpm/action-setup@v3
+        uses: pnpm/action-setup@v4 # Actualizado de v3 a v4
         with:
           version: 9
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --no-frozen-lockfile
 
       - name: Build static site
         run: npx nuxi generate
