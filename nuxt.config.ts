@@ -2,6 +2,9 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
+  app: {
+    baseURL: '/islas-dev/'
+  },
   modules: ['nuxt-quasar-ui'],
     quasar: {
     iconSet: 'mdi-v7',
